@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Date using onclick()</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Display Current Date in Textbox</h2>
+
+  <input type="text" id="dateBox" placeholder="Date will appear here" readonly><br>
+  <button onclick="displayDate()">Display Date</button>
+
+  <script>
+    function displayDate() {
+      let currentDate = new Date(); // Get current date and time
+      document.getElementById("dateBox").value = currentDate.toString(); // Show in textbox
+    }
+  </script>
+
+</body>
+</html>
