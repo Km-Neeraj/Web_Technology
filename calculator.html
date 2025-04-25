@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Calculator</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 250px; /* total width of 4 buttons and margins */
+    }
+
+    #result {
+      width: 230px;  /* adjusted to match total button width */
+      padding: 10px;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      width: 50px;
+      height: 40px;
+      margin: 2px;
+      font-size: 16px;
+    }
+
+    .btn-wide {
+      width: 230px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2> Calculator</h2>
+    <input type="text" id="result" readonly><br>
+
+    <button class="btn" onclick="append('7')">7</button>
+    <button class="btn" onclick="append('8')">8</button>
+    <button class="btn" onclick="append('9')">9</button>
+    <button class="btn" onclick="append('/')">/</button><br>
+
+    <button class="btn" onclick="append('4')">4</button>
+    <button class="btn" onclick="append('5')">5</button>
+    <button class="btn" onclick="append('6')">6</button>
+    <button class="btn" onclick="append('*')">*</button><br>
+
+    <button class="btn" onclick="append('1')">1</button>
+    <button class="btn" onclick="append('2')">2</button>
+    <button class="btn" onclick="append('3')">3</button>
+    <button class="btn" onclick="append('-')">-</button><br>
+
+    <button class="btn" onclick="append('0')">0</button>
+    <button class="btn" onclick="append('.')">.</button>
+    <button class="btn" onclick="calculate()">=</button>
+    <button class="btn" onclick="append('+')">+</button><br>
+
+    <button class="btn btn-wide" onclick="clearResult()">Clear</button>
+  </div>
+
+  <script>
+    function append(value) {
+      document.getElementById("result").value += value;
+    }
+
+    function calculate() {
+      try {
+        document.getElementById("result").value = eval(document.getElementById("result").value);
+      } catch (error) {
+        alert("Invalid Expression");
+      }
+    }
+
+    function clearResult() {
+      document.getElementById("result").value = "";
+    }
+  </script>
+
+</body>
+</html>
